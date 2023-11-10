@@ -5,12 +5,13 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(name = "gart_data")
 public class GartData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "문화명")
+    @Column(name = "name")
     private String cultureName;
 
     // getter와 setter
