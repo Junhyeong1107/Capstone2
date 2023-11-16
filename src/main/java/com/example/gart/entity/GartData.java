@@ -2,6 +2,7 @@ package com.example.gart.entity;
 
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 
 @Entity
@@ -13,6 +14,15 @@ public class GartData {
 
     @Column(name = "name")
     private String cultureName;
+
+    @Column(name = "start_date")
+    private LocalDate startDate;
+
+    @Column(name = "end_date")
+    private LocalDate endDate;
+
+    @Column(name="category")
+    private String category;
 
     // getter와 setter
     public Long getId() {
@@ -29,6 +39,24 @@ public class GartData {
 
     public void setCultureName(String cultureName) {
         this.cultureName = cultureName;
+    }
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
 
