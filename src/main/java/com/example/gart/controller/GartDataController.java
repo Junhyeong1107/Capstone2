@@ -16,19 +16,27 @@ public class GartDataController {
 
     @GetMapping("/culture-names")
     public ResponseEntity<List<String>> getAllCultureNames(
-        @RequestParam(value = "category", required = false) String category,
-        @RequestParam(value = "keyword", required = false) String keyword) {
-    List<String> cultureNames;
+            @RequestParam(value = "category", required = false) String category,
+            @RequestParam(value = "keyword", required = false) String keyword) {
+        List<String> cultureNames;
 
-    if (category != null && !category.isEmpty()) {
-        cultureNames = gartDataService.getCultureNamesByCategory(category);
-    } else if (keyword != null && !keyword.isEmpty()) {
-        cultureNames = gartDataService.getCultureNamesByKeyword(keyword);
-    } else {
-        cultureNames = gartDataService.getAllCultureNames();
+        if (category != null && !category.isEmpty()) {
+            cultureNames = gartDataService.getCultureNamesByCategory(category);
+        } else if (keyword != null && !keyword.isEmpty()) {
+            cultureNames = gartDataService.getCultureNamesByKeyword(keyword);
+        } else {
+            cultureNames = gartDataService.getAllCultureNames();
+        }
+        return new ResponseEntity<>(cultureNames, HttpStatus.OK);
     }
 
-    return new ResponseEntity<>(cultureNames, HttpStatus.OK);
-}
-
+    @GetMapping("/url")
+    public ResponseEntity<String> getUrlByName(@RequestParam String name) {
+        String url = gartDataService.getUrlByName(name);
+        if (url != null) {
+            return ResponseEntity.ok(url);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("URL not found for the given name.");
+        }
+    }
 }

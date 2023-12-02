@@ -12,6 +12,17 @@ public class Image {
     @Column(name = "file_path", length = 255, nullable = false)
     private String filePath;
 
+    @Column(name = "gid", nullable = false)
+    private Long gartDataId;
+
+    public Long getGartDataId() {
+        return gartDataId;
+    }
+
+    public void setGartDataId(Long gartDataId) {
+        this.gartDataId = gartDataId;
+    }
+
     // 생성자, getter, setter 생략
     public void setFilePath(String filePath) {
         this.filePath = filePath;

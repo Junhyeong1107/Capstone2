@@ -21,4 +21,7 @@ public class GartDataService {
     public List<String> getCultureNamesByKeyword(String keyword) {
         return gartDataRepository.getCultureNamesByKeyword(keyword);
     }
+    public String getUrlByName(String name) {
+        return gartDataRepository.findUrlByName(name).orElse(null);
+    }
 }

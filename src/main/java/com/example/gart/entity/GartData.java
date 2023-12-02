@@ -24,6 +24,9 @@ public class GartData {
     @Column(name="category")
     private String category;
 
+    @Column(name="host")
+    private String host;
+
     // getter와 setter
     public Long getId() {
         return id;
@@ -57,6 +60,12 @@ public class GartData {
     }
     public void setCategory(String category) {
         this.category = category;
+    }
+    public void setHost(String host) {
+        this.host = host;
+    }
+    public String getHost() {
+        return host;
     }
 }
 
